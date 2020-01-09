@@ -32,8 +32,9 @@ class Collection extends BaseCollection
             foreach ($children as $child) {
                 $child->setRelation('parent', $node);
             }
-
-            $node->setRelation('children', BaseCollection::make($children));
+            if(count($children) > 0){
+                $node->setRelation('children', BaseCollection::make($children));
+            }
         }
 
         return $this;
